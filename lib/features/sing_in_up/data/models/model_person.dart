@@ -35,12 +35,12 @@ class ModelPerson extends Person {
       "PId": pId,
       "email": email,
       "pass": pass,
-      "birthDate": birthDate,
+      "birthDate": birthDate.toString(),
       "phoneNumber": phoneNumber,
       "country": country,
       "region": region,
       "city": city,
-      "gender": gender
+      "gender": gender.toString()
     };
   }
 }
