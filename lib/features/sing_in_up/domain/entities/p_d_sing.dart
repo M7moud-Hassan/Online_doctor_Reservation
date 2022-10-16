@@ -1,5 +1,4 @@
 import 'package:equatable/equatable.dart';
-import 'package:online_doctor_reservation/features/sing_in_up/domain/entities/person.dart';
 
 class SingIn extends Equatable {
   final String email;
@@ -7,7 +6,7 @@ class SingIn extends Equatable {
   final String token;
   final bool asDoctor;
 
-  SingIn(
+  const SingIn(
       {required this.email,
       required this.pass,
       required this.token,
