@@ -3,13 +3,13 @@ import 'package:equatable/equatable.dart';
 class SingIn extends Equatable {
   final String email;
   final String pass;
-  final String token;
+  final String id;
   final bool asDoctor;
 
   const SingIn(
       {required this.email,
       required this.pass,
-      required this.token,
+      required this.id,
       this.asDoctor = false});
   @override
   // TODO: implement props

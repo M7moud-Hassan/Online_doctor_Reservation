@@ -3,9 +3,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:online_doctor_reservation/core/errors/Failure.dart';
+import 'package:online_doctor_reservation/core/errors/failure.dart';
 import 'package:online_doctor_reservation/features/sing_in_up/data/datasources/person_doctor_remote_data.dart';
-import 'package:online_doctor_reservation/features/sing_in_up/data/repositories/Person_Doctor_RepoImp.dart';
+import 'package:online_doctor_reservation/features/sing_in_up/data/repositories/person_doctor_repoImp.dart';
 import 'package:online_doctor_reservation/features/sing_in_up/domain/entities/p_d_sing.dart';
 import 'package:online_doctor_reservation/features/sing_in_up/domain/entities/person.dart';
 import 'package:online_doctor_reservation/features/sing_in_up/domain/repositories/person_doctor_repo.dart';
@@ -22,43 +22,34 @@ void main() async {
 
 class MyApp extends StatelessWidget {
   FirebaseFirestore firestore = FirebaseFirestore.instance;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
         child: ElevatedButton(
           onPressed: () async {
-            try {
-              SingUpP singUpP = SingUpP(
-                  personDoctorRepo: PersonDoctorRepoImp(
-                      pdRemoteDataSourceImp: PDRemoteDataSourceImp()));
-              Either<Failure, SingIn> singIn = await singUpP(Person(
-                  fName: "mahmoud",
-                  lName: "hassan",
-                  pId: "13232637374749",
-                  email: "abosamour990@gmail.com",
-                  pass: "12345678",
-                  birthDate: DateTime(1996, 12, 21),
-                  phoneNumber: "011142788054",
-                  country: "sohag",
-                  region: "egypt",
-                  city: "saqlth",
-                  gender: Gender.female));
-              late SingIn singIn2;
-              singIn.fold((failure) => null, (si) => singIn2 = si);
-              print(singIn2.email);
-              print(singIn2.pass);
-              print(singIn2.asDoctor);
-              print(singIn2.token);
-            } on FirebaseAuthException catch (e) {
-              switch (e.code) {
-                case "operation-not-allowed":
-                  print("Anonymous auth hasn't been enabled for this project.");
-                  break;
-                default:
-                  print("Unknown error.");
-              }
-            }
+            SingUpP singUpP = SingUpP(
+                personDoctorRepo: PersonDoctorRepoImp(
+                    pdRemoteDataSourceImp: PDRemoteDataSourceImp(
+                        firebaseAuth: FirebaseAuth.instance)));
+            Either result = await singUpP(Person(
+                fName: "mahmoud",
+                lName: "hassan",
+                pId: "2435355354664",
+                email: "soonfu0@gmail.com",
+                pass: "jak01142",
+                birthDate: DateTime(1996, 12, 8),
+                phoneNumber: "01142788054",
+                country: "egypt",
+                region: "sohag",
+                city: "saqlth",
+                gender: Gender.male));
+            result.fold((l) => {print(l.toString())}, (r) {
+              UserCredential userCredential = r as UserCredential;
+
+              print(userCredential.user!.email);
+            });
           },
           child: const Text("Sing in"),
         ),
