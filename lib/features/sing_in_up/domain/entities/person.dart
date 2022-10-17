@@ -27,7 +27,6 @@ class Person extends Equatable {
       required this.gender});
 
   @override
-  // TODO: implement props
   List<Object?> get props => [
         fName,
         lName,

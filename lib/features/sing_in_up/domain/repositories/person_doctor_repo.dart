@@ -16,3 +16,7 @@ abstract class SingInRepo {
   Future<Either<Failure, Unit>> verificationEmail(
       UserCredential userCredential);
 }
+
+abstract class UploadCertificationRepo {
+  Future<Either<Failure, Unit>> uploadCertification(String path, name);
+}

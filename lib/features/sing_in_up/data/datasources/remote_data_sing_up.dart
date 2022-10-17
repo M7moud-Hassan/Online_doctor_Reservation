@@ -1,12 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:online_doctor_reservation/core/errors/exceptions.dart';
-import 'package:online_doctor_reservation/core/errors/failure.dart';
 import 'package:online_doctor_reservation/features/sing_in_up/data/models/model_doctor.dart';
 import 'package:online_doctor_reservation/features/sing_in_up/data/models/model_person.dart';
 import 'package:online_doctor_reservation/features/sing_in_up/domain/entities/doctor.dart';
-import 'package:online_doctor_reservation/features/sing_in_up/domain/entities/p_d_sing.dart';
 import 'package:online_doctor_reservation/features/sing_in_up/domain/entities/person.dart';
 
 abstract class SingUpRemoteDataSource {
