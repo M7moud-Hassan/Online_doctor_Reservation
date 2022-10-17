@@ -6,8 +6,13 @@ import 'package:online_doctor_reservation/features/sing_in_up/domain/entities/pe
 
 import '../entities/p_d_sing.dart';
 
-abstract class PersonDoctorRepo {
+abstract class SingUpRepo {
   Future<Either<Failure, UserCredential>> singUpP(Person person);
   Future<Either<Failure, UserCredential>> singUpD(Doctor doctor);
-  Future<Either<Failure, UserCredential>> singIn(SingIn person);
+}
+
+abstract class SingInRepo {
+  Future<Either<Failure, SingInData>> singIn(String email, String password);
+  Future<Either<Failure, Unit>> verificationEmail(
+      UserCredential userCredential);
 }

@@ -1,17 +1,13 @@
 import 'package:equatable/equatable.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
-class SingIn extends Equatable {
-  final String email;
-  final String pass;
-  final String id;
-  final bool asDoctor;
-
-  const SingIn(
-      {required this.email,
-      required this.pass,
-      required this.id,
-      this.asDoctor = false});
+class SingInData extends Equatable {
+  final UserCredential userCredential;
+  final bool isDoctor;
+  const SingInData({
+    required this.userCredential,
+    required this.isDoctor,
+  });
   @override
-  // TODO: implement props
-  List<Object?> get props => throw UnimplementedError();
+  List<Object?> get props => [userCredential, isDoctor];
 }

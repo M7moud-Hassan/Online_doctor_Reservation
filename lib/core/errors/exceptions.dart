@@ -5,3 +5,7 @@ class EmailInvalidException implements Exception {}
 class PasswordWeakException implements Exception {}
 
 class ErrorException implements Exception {}
+
+class UserNotFoundException implements Exception {}
+
+class WrongPasswordException implements Exception {}

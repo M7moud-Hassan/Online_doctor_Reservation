@@ -1,19 +1,20 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:online_doctor_reservation/core/errors/exceptions.dart';
+import 'package:online_doctor_reservation/core/errors/failure.dart';
 import 'package:online_doctor_reservation/features/sing_in_up/data/models/model_doctor.dart';
 import 'package:online_doctor_reservation/features/sing_in_up/data/models/model_person.dart';
 import 'package:online_doctor_reservation/features/sing_in_up/domain/entities/doctor.dart';
 import 'package:online_doctor_reservation/features/sing_in_up/domain/entities/p_d_sing.dart';
 import 'package:online_doctor_reservation/features/sing_in_up/domain/entities/person.dart';
 
-abstract class PDRemoteDataSource {
+abstract class SingUpRemoteDataSource {
   Future<UserCredential> singUpP(Person person);
   Future<UserCredential> singUpD(Doctor doctor);
-  Future<UserCredential> singIn(SingIn singIn);
 }
 
-class PDRemoteDataSourceImp implements PDRemoteDataSource {
+class PDRemoteDataSourceImp implements SingUpRemoteDataSource {
   late CollectionReference users;
   final FirebaseAuth firebaseAuth;
 
@@ -39,12 +40,6 @@ class PDRemoteDataSourceImp implements PDRemoteDataSource {
         .toJson());
 
     return userCredential;
-  }
-
-  @override
-  Future<UserCredential> singIn(SingIn singIn) {
-    // TODO: implement singIn
-    throw UnimplementedError();
   }
 
   @override

@@ -6,9 +6,10 @@ import '../entities/p_d_sing.dart';
 import '../repositories/person_doctor_repo.dart';
 
 class SingInPD {
-  PersonDoctorRepo personDoctorRepo;
-  SingInPD({required this.personDoctorRepo});
-  Future<Either<Failure, UserCredential>> call(SingIn person) async {
-    return await personDoctorRepo.singIn(person);
+  SingInRepo singInRepo;
+  SingInPD({required this.singInRepo});
+  Future<Either<Failure, SingInData>> call(
+      String email, String password) async {
+    return await singInRepo.singIn(email, password);
   }
 }
