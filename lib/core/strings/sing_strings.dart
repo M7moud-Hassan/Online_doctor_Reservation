@@ -1,0 +1,10 @@
+const String HINT_EMAIL = "Enter your email";
+const String EMAIL = "Email";
+const String ENTER_EMAIL = 'Please enter your email';
+const String ERROR_EMAIL = "Please enter correct email";
+const String ENTER_PASSWORD = "Please enter your password";
+const String LENGHT_PASS_LESS = "Please enter length password greater than 8";
+const String HINT_PASS = "Enter your Password";
+const String PASSWORD = "Password";
+const String TITLE = "Sing In";
+const String SING_UP_LINK = "create a account...";
