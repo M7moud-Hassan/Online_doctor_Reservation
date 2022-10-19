@@ -33,3 +33,13 @@ class WrongPasswordFailure extends Failure {
   @override
   List<Object?> get props => [];
 }
+
+class InternetIsNotConnectingFailure extends Failure {
+  @override
+  List<Object?> get props => [];
+}
+
+class TooManyRequestsFailure extends Failure {
+  @override
+  List<Object?> get props => [];
+}

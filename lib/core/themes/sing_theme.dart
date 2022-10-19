@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 double fontSizeTitle = 25;
 final singTheme = ThemeData(
+    primaryColor: Colors.white,
     appBarTheme: AppBarTheme(
         backgroundColor: Colors.transparent,
         centerTitle: true,
@@ -26,4 +27,6 @@ final singTheme = ThemeData(
         bodyText1: TextStyle(
             fontSize: 20,
             color: Colors.blue,
-            decoration: TextDecoration.underline)));
+            decoration: TextDecoration.underline)),
+    progressIndicatorTheme:
+        const ProgressIndicatorThemeData(color: Colors.blue));

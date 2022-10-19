@@ -8,21 +8,23 @@ import '../../../../core/errors/exceptions.dart';
 import '../../domain/entities/p_d_sing.dart';
 
 class SingInpRepoImp implements SingInRepo {
-  final SingInRemoteDataSourceImp singInRemoteDataSourceImp;
+  final SingInRemoteDataSource singInRemoteDataSource;
 
-  SingInpRepoImp({required this.singInRemoteDataSourceImp});
+  SingInpRepoImp({required this.singInRemoteDataSource});
 
   @override
   Future<Either<Failure, SingInData>> singIn(
       String email, String password) async {
     try {
-      return Right(await singInRemoteDataSourceImp.singIn(email, password));
+      return Right(await singInRemoteDataSource.singIn(email, password));
     } on ErrorException {
       return Left(ErrorFailure());
     } on UserNotFoundException {
       return Left(UserNotFoundFailure());
     } on WrongPasswordException {
       return Left(WrongPasswordFailure());
+    } on InternetIsNotConnectingException {
+      return Left(InternetIsNotConnectingFailure());
     }
   }
 
@@ -30,8 +32,12 @@ class SingInpRepoImp implements SingInRepo {
   Future<Either<Failure, Unit>> verificationEmail(
       UserCredential userCredential) async {
     try {
-      await singInRemoteDataSourceImp.verificationEmail(userCredential);
+      await singInRemoteDataSource.verificationEmail(userCredential);
       return const Right(unit);
+    } on InternetIsNotConnectingException {
+      return Left(InternetIsNotConnectingFailure());
+    } on TooManyRequestsException {
+      return Left(TooManyRequestsFailure());
     } on ErrorException {
       return Left(ErrorFailure());
     }

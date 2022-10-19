@@ -6,15 +6,15 @@ import '../../../../core/themes/sing_theme.dart';
 
 class SingInPage extends StatelessWidget {
   const SingInPage({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Theme(
       data: singTheme,
       child: NestedScrollView(
           headerSliverBuilder: (context, innerBoxIsScrolled) => [
-                const SliverAppBar(
-                  title: Text(TITLE),
+                SliverAppBar(
+                  backgroundColor: Theme.of(context).primaryColor,
+                  title: const Text(TITLE),
                 )
               ],
           body: SingInForm()),
