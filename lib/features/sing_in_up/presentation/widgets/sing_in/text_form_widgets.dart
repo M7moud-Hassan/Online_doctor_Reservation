@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:online_doctor_reservation/core/strings/sing_strings.dart';
 import 'package:online_doctor_reservation/features/sing_in_up/presentation/bloc/sing_in/sing_in_bloc.dart';
-import 'package:online_doctor_reservation/features/sing_in_up/presentation/widgets/sing_in/sing_in_widget.dart';
+import 'package:online_doctor_reservation/features/sing_in_up/presentation/pages/sing_up_page.dart';
+import 'package:online_doctor_reservation/features/sing_in_up/presentation/widgets/sing_in/sing_in_form.dart';
 import 'package:flutter_html/flutter_html.dart';
 
 TextFormField emailTextForm(EmailAndPassword emailAndPassword) => TextFormField(
@@ -66,15 +67,23 @@ Widget btnSingIn(GlobalKey<FormState> formKey, context,
                 password: emailAndPassword.password));
           }
         },
-        child: const Text(TITLE));
+        child: const Text(TITLE_SING_IN));
 
 Widget singUpLink(context) => Container(
       padding: const EdgeInsets.only(left: 5),
       width: double.infinity,
-      child: Text(
-        SING_UP_LINK,
-        textAlign: TextAlign.left,
-        style: Theme.of(context).textTheme.bodyText1,
+      child: InkWell(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const SingUpPage()),
+          );
+        },
+        child: Text(
+          SING_UP_LINK,
+          textAlign: TextAlign.left,
+          style: Theme.of(context).textTheme.bodyText1,
+        ),
       ),
     );
 

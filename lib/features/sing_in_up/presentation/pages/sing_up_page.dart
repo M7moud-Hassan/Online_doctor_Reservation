@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:online_doctor_reservation/core/strings/sing_strings.dart';
-import 'package:online_doctor_reservation/features/sing_in_up/presentation/widgets/sing_in/sing_in_form.dart';
+import 'package:online_doctor_reservation/features/sing_in_up/presentation/widgets/sing_up/sing_up_form.dart';
 
+import '../../../../core/strings/sing_strings.dart';
 import '../../../../core/themes/sing_theme.dart';
 
-class SingInPage extends StatelessWidget {
-  const SingInPage({super.key});
+class SingUpPage extends StatelessWidget {
+  const SingUpPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Theme(
@@ -14,10 +15,10 @@ class SingInPage extends StatelessWidget {
           headerSliverBuilder: (context, innerBoxIsScrolled) => [
                 SliverAppBar(
                   backgroundColor: Theme.of(context).primaryColor,
-                  title: const Text(TITLE_SING_IN),
+                  title: const Text(TITLE_SING_UP),
                 )
               ],
-          body: SingInForm()),
+          body: SingUpForm()),
     );
   }
 }
