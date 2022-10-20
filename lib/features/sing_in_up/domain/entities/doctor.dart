@@ -1,15 +1,16 @@
 import 'package:online_doctor_reservation/features/sing_in_up/domain/entities/person.dart';
 
+// ignore: must_be_immutable
 class Doctor extends Person {
-  final String syndicalismNumber;
-  final String countryC;
-  final String regionC;
-  final String cityC;
-  final String flatNumber;
-  final DateTime startTime;
-  final DateTime endTime;
-  final String bachelorCertification;
-  const Doctor(
+  String syndicalismNumber;
+  String countryC;
+  String regionC;
+  String cityC;
+  String flatNumber;
+  DateTime startTime;
+  DateTime endTime;
+  String bachelorCertification;
+  Doctor(
       {required this.syndicalismNumber,
       required this.countryC,
       required this.regionC,

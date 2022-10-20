@@ -6,13 +6,15 @@ import 'package:online_doctor_reservation/features/sing_in_up/domain/repositorie
 import '../datasources/remote_upload_cer.dart';
 
 class UploadCertificationRepoImp implements UploadCertificationRepo {
-  UploadCertificationImp uploadCertificationImp;
-  UploadCertificationRepoImp({required this.uploadCertificationImp});
+  UploadCertificationData uploadCertificationData;
+  UploadCertificationRepoImp({required this.uploadCertificationData});
 
   @override
   Future<Either<Failure, Unit>> uploadCertification(String path, name) async {
     try {
-      return Right(await uploadCertificationImp.uploadFile(path, name));
+      return Right(await uploadCertificationData.uploadFile(path, name));
+    } on InternetIsNotConnectingException {
+      return Left(InternetIsNotConnectingFailure());
     } on ErrorException {
       return Left(ErrorFailure());
     }

@@ -1,7 +1,8 @@
 import 'package:online_doctor_reservation/features/sing_in_up/domain/entities/person.dart';
 
+// ignore: must_be_immutable
 class ModelPerson extends Person {
-  const ModelPerson(
+  ModelPerson(
       {required super.fName,
       required super.lName,
       required super.pId,

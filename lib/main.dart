@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:online_doctor_reservation/core/themes/theme_app.dart';
 import 'package:online_doctor_reservation/features/sing_in_up/presentation/bloc/sing_in/sing_in_bloc.dart';
 import 'package:online_doctor_reservation/features/sing_in_up/presentation/pages/sing_in_page.dart';
+import 'features/sing_in_up/presentation/bloc/sing_up/sing_up_bloc.dart';
 import 'injection_container.dart' as di;
 
 void main() async {
@@ -22,6 +23,9 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(
           create: (context) => di.sl<SingInBloc>()..add(CheckNetwortEvent()),
+        ),
+        BlocProvider(
+          create: (context) => di.sl<SingUpBloc>()..add(SignUpAsPersonEvent()),
         ),
       ],
       child: MaterialApp(

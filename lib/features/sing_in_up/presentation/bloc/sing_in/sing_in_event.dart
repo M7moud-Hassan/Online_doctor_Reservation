@@ -27,3 +27,5 @@ class VerificationEmailEvent extends SingInEvent {
   @override
   List<Object> get props => [userCredential];
 }
+
+class BackToSingPageEvent extends SingInEvent {}

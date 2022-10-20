@@ -37,6 +37,8 @@ class SingInBloc extends Bloc<SingInEvent, SingInState> {
             await verificationEmail(event.userCredential);
         result.fold((l) => sendErrorMessage(l, emit),
             (r) => emit(EndVerificationEmailState()));
+      } else if (event is BackToSingPageEvent) {
+        emit(BackToSingPageState());
       }
     });
   }

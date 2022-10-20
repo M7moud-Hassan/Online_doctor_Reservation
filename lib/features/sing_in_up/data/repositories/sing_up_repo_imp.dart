@@ -15,13 +15,17 @@ class SingUpRepoImp implements SingUpRepo {
 
   @override
   Future<Either<Failure, UserCredential>> singUpP(Person person) async {
-    return singUp(singUpRemoteDataSource.singUpP(person));
+    if (person.runtimeType.toString() == "Person") {
+      return singUp(singUpRemoteDataSource.singUpP(person));
+    } else {
+      return singUp(singUpRemoteDataSource.singUpD(person as Doctor));
+    }
   }
 
-  @override
+  /*@override
   Future<Either<Failure, UserCredential>> singUpD(Doctor doctor) async {
     return singUp(singUpRemoteDataSource.singUpD(doctor));
-  }
+  }*/
 
   Future<Either<Failure, UserCredential>> singUp(
       Future<UserCredential> fun) async {
@@ -33,6 +37,8 @@ class SingUpRepoImp implements SingUpRepo {
       return Left(EmailIsUseFailur());
     } on PasswordWeakException {
       return Left(PasswordWeakFailur());
+    } on InternetIsNotConnectingException {
+      return Left(InternetIsNotConnectingFailure());
     } on ErrorException {
       return Left(ErrorFailure());
     }

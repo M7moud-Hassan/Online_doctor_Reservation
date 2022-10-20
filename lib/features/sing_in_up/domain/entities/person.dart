@@ -1,19 +1,20 @@
 import 'package:equatable/equatable.dart';
 
+// ignore: must_be_immutable
 class Person extends Equatable {
-  final String fName;
-  final String lName;
-  final String pId;
-  final String email;
-  final String pass;
-  final DateTime birthDate;
-  final String phoneNumber;
-  final String country;
-  final String region;
-  final String city;
-  final Gender gender;
+  String fName;
+  String lName;
+  String pId;
+  String email;
+  String pass;
+  DateTime birthDate;
+  String phoneNumber;
+  String country;
+  String region;
+  String city;
+  Gender gender;
 
-  const Person(
+  Person(
       {required this.fName,
       required this.lName,
       required this.pId,

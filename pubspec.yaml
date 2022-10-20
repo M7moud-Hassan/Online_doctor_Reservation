@@ -58,6 +58,14 @@ dependencies:
   flutter_html: ^3.0.0-alpha.6
   date_field: ^3.0.0
   group_radio_button: ^1.2.0
+  flutter_native_splash: ^2.2.10+1
+
+
+flutter_native_splash:
+  color: "#ffffff"
+  image: assets/logo_sing/logo.png
+  android: true
+  ios: true
 
 dev_dependencies:
   flutter_test:

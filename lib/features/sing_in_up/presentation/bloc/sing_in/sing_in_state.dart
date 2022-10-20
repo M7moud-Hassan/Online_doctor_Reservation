@@ -41,3 +41,5 @@ class MessageFailureState extends SingInState {
 class StartVerificationEmailState extends SingInState {}
 
 class EndVerificationEmailState extends SingInState {}
+
+class BackToSingPageState extends SingInState {}

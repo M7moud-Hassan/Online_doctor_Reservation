@@ -1,7 +1,8 @@
 import 'package:online_doctor_reservation/features/sing_in_up/domain/entities/doctor.dart';
 
+// ignore: must_be_immutable
 class ModelDoctor extends Doctor {
-  const ModelDoctor(
+  ModelDoctor(
       {required super.syndicalismNumber,
       required super.countryC,
       required super.regionC,
@@ -44,7 +45,6 @@ class ModelDoctor extends Doctor {
         city: json["city"],
         gender: json["gender"]);
   }
-
   Map<String, dynamic> toJson() {
     return {
       "syndicalismNumber": syndicalismNumber,
@@ -65,7 +65,7 @@ class ModelDoctor extends Doctor {
       "country": country,
       "region": region,
       "city": city,
-      "gender": gender
+      "gender": gender.toString()
     };
   }
 }
