@@ -13,3 +13,7 @@ class WrongPasswordException implements Exception {}
 class InternetIsNotConnectingException implements Exception {}
 
 class TooManyRequestsException implements Exception {}
+
+class ServerException implements Exception {}
+
+class EmptyCacheException implements Exception {}

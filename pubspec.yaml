@@ -59,6 +59,7 @@ dependencies:
   date_field: ^3.0.0
   group_radio_button: ^1.2.0
   flutter_native_splash: ^2.2.10+1
+  shared_preferences: ^2.0.15
 
 
 flutter_native_splash:
