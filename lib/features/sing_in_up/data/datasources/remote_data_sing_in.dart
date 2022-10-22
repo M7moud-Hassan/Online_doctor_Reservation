@@ -19,6 +19,7 @@ class SingInRemoteDataSourceImp implements SingInRemoteDataSource {
     if (await InternetChecking.checkNet()) {
       try {
         await userCredential.user!.sendEmailVerification();
+        // FirebaseAuth.instance.currentUser!.sendEmailVerification();
         return Future.value(unit);
       } on FirebaseAuthException catch (e) {
         if (e.code == "too-many-requests") {
