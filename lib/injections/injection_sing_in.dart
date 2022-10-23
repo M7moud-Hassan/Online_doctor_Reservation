@@ -13,8 +13,8 @@ import 'package:online_doctor_reservation/features/sing_in_up/domain/usecases/up
 import 'package:online_doctor_reservation/features/sing_in_up/presentation/bloc/sing_in/sing_in_bloc.dart';
 import 'package:online_doctor_reservation/features/sing_in_up/presentation/bloc/sing_up/sing_up_bloc.dart';
 
-import 'features/sing_in_up/domain/usecases/sing_in_person_doctor.dart';
-import 'features/sing_in_up/domain/usecases/verification_email.dart';
+import '../features/sing_in_up/domain/usecases/sing_in_person_doctor.dart';
+import '../features/sing_in_up/domain/usecases/verification_email.dart';
 
 final sl = GetIt.instance;
 Future<void> init() async {

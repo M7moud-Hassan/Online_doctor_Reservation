@@ -2,8 +2,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:online_doctor_reservation/core/strings/sing_strings.dart';
+import 'package:online_doctor_reservation/features/posts/presentation/pages/home_page.dart';
 import 'package:online_doctor_reservation/features/sing_in_up/presentation/bloc/sing_in/sing_in_bloc.dart';
-import 'package:online_doctor_reservation/features/sing_in_up/presentation/pages/welcom_page.dart';
 import 'package:online_doctor_reservation/features/sing_in_up/presentation/widgets/sing_in/text_form_widgets.dart';
 import '../../../../../core/widgets/snackbar_widget.dart';
 
@@ -49,7 +49,7 @@ class SingInForm extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => WelcomPage(
+                        builder: (context) => HomePage(
                               singInData: state.singInData,
                             )),
                   );
